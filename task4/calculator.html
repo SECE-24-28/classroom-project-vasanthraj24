@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+</head>
+<body>
+  <h2>Simple Calculator (if...else)</h2>
+
+  <!-- Input fields -->
+  <label>First Number:</label>
+  <input type="number" id="num1"><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" id="num2"><br><br>
+
+  <label>Operator (+, -, *, /):</label>
+  <input type="text" id="operator"><br><br>
+
+  <!-- Button -->
+  <button onclick="calculate()">Calculate</button>
+
+  <!-- Result -->
+  <h3 id="result"></h3>
+
+  <script>
+    function calculate() {
+      // Get values
+      let num1 = parseFloat(document.getElementById("num1").value);
+      let num2 = parseFloat(document.getElementById("num2").value);
+      let op = document.getElementById("operator").value;
+      let result;
+
+      // if...else logic
+      if (op === "+") {
+        result = num1 + num2;
+      } else if (op === "-") {
+        result = num1 - num2;
+      } else if (op === "*") {
+        result = num1 * num2;
+      } else if (op === "/") {
+        if (num2 !== 0) {
+          result = num1 / num2;
+        } else {
+          result = "Error: Division by zero!";
+        }
+      } else {
+        result = "Invalid operator!";
+      }
+
+      // Display result
+      document.getElementById("result").innerText = "Result: " + result;
+    }
+  </script>
+</body>
+</html>
